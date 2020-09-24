@@ -24,11 +24,6 @@ public class UserEntity {
 	private String role;
 	private String image;
 	
-
-//	@OneToMany(mappedBy="user")
-//	private List<Ticket> tickets;
-//	
-	
 	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
 	@JoinTable(
@@ -44,6 +39,24 @@ public class UserEntity {
 	
 	public UserEntity() {
 		// TODO Auto-generated constructor stub
+	}
+
+
+
+
+
+
+	public List<TicketEntity> getTicketEntities() {
+		return ticketEntities;
+	}
+
+
+
+
+
+
+	public void setTicketEntities(List<TicketEntity> ticketEntities) {
+		this.ticketEntities = ticketEntities;
 	}
 
 

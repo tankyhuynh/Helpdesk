@@ -25,11 +25,11 @@ public class TicketEntity {
 	private String technicianId;
 	private String technicianName;
 	
-	@OneToMany(mappedBy="ticket")
+	@OneToMany(mappedBy="ticketEntity")
 	private List<StatusEntity> statusEntity;
 	
 	
-	@ManyToMany(mappedBy = "tickets")
+	@ManyToMany(mappedBy = "ticketEntities")
 	private List<UserEntity> books = new ArrayList<UserEntity>();
 	
 	
