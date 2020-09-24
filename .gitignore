@@ -125,7 +125,7 @@ hs_err_pid*
 
 ### Maven ###
 target/
-application.properties
+classes/application.properties
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
