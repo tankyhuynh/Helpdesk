@@ -44,8 +44,8 @@ public class AuthAPI {
 	}
 	
 	
-	@PostMapping("/test")
-	public String test(Model model, HttpServletRequest request, @RequestParam("msg") String msg) {
+	@PostMapping("/continue")
+	public String continued(Model model, HttpServletRequest request, @RequestParam("msg") String msg) {
 		@SuppressWarnings("unchecked")
 		List<String> messages = (List<String>) request.getSession().getAttribute("USER_SESSION");
 

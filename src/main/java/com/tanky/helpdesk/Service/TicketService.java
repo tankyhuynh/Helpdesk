@@ -2,6 +2,8 @@ package com.tanky.helpdesk.Service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +12,7 @@ import com.tanky.helpdesk.Entity.UserEntity;
 import com.tanky.helpdesk.Repository.TicketRepo;
 
 @Service
+@Transactional
 public class TicketService {
 
 	@Autowired
@@ -25,6 +28,10 @@ public class TicketService {
 	
 	public TicketEntity save(TicketEntity entity) {
 		return ticketRepo.save(entity);
+	}
+	
+	public TicketEntity saveAndFlush(TicketEntity entity) {
+		return ticketRepo.saveAndFlush(entity);
 	}
 	
 	public void saveAll(List<TicketEntity> ticketEntities) {

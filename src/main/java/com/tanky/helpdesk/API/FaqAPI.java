@@ -18,18 +18,18 @@ import com.tanky.helpdesk.Service.FAQService;
 
 @RestController
 @RequestMapping("/v1/faq")
-public class FAQAPI {
+public class FaqAPI {
 	
 	@Autowired
 	private FAQService faqService;
 	
 	@GetMapping
-	public ResponseEntity<List<FAQEntity>> getOne() throws Exception {
+	public ResponseEntity<List<FAQEntity>> getAll() throws Exception {
 		return ResponseEntity.ok(faqService.findAll());
 	}
 	
 	@GetMapping("/{id}")
-	public FAQEntity getAll(@PathVariable Long id) throws Exception {
+	public FAQEntity getOneById(@PathVariable Long id) throws Exception {
 		return faqService.findOne(id);
 	}
 	
@@ -46,13 +46,13 @@ public class FAQAPI {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<FAQEntity> update(@PathVariable Long id, @RequestBody FAQEntity faqModel) {
+	public ResponseEntity<FAQEntity> updateById(@PathVariable Long id, @RequestBody FAQEntity faqModel) {
 		faqModel.setId(id);
 		return ResponseEntity.ok(faqService.save(faqModel));
 	}
 	
 	@DeleteMapping("/{id}")
-	public void detele(@PathVariable Long id) {
+	public void deteleById(@PathVariable Long id) {
 		faqService.delete(id);
 	}
 }

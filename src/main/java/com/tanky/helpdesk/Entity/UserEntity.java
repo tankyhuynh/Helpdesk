@@ -10,75 +10,47 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "user")
 public class UserEntity {
-	
+
 	@Id
 	private long id;
 	private String username;
 	private String password;
 	private String fullName;
 	private String role;
-	private String image;
-	
-	
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
-	@JoinTable(
-	  name = "user_ticket", 
-	  joinColumns = @JoinColumn(name = "user_id"), 
-	  inverseJoinColumns = @JoinColumn(name = "ticket_id"))
-	private List<TicketEntity> ticketEntities = new ArrayList<TicketEntity>();
-	
-	
-	
-	
-	
-	
+//	private String image;
+
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name = "users_ticket", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "ticket_id"))
+	@JsonIgnoreProperties(value = {"users"})
+	private List<TicketEntity> tickets = new ArrayList<TicketEntity>();
+
+
 	public UserEntity() {
 		// TODO Auto-generated constructor stub
 	}
 
 
-
-
-
-
-	public List<TicketEntity> getTicketEntities() {
-		return ticketEntities;
-	}
-
-
-
-
-
-
-	public void setTicketEntities(List<TicketEntity> ticketEntities) {
-		this.ticketEntities = ticketEntities;
-	}
-
-
-
-
-
-
 	public UserEntity(long id, String username, String password, String fullName, String role, String image,
-			List<TicketEntity> ticketEntities) {
+			List<TicketEntity> tickets) {
 		super();
 		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.fullName = fullName;
 		this.role = role;
-		this.image = image;
-		this.ticketEntities = ticketEntities;
+//		this.image = image;
+		this.tickets = tickets;
 	}
-
-
-
-
 
 
 	public long getId() {
@@ -86,17 +58,9 @@ public class UserEntity {
 	}
 
 
-
-
-
-
 	public void setId(long id) {
 		this.id = id;
 	}
-
-
-
-
 
 
 	public String getUsername() {
@@ -104,17 +68,9 @@ public class UserEntity {
 	}
 
 
-
-
-
-
 	public void setUsername(String username) {
 		this.username = username;
 	}
-
-
-
-
 
 
 	public String getPassword() {
@@ -122,17 +78,9 @@ public class UserEntity {
 	}
 
 
-
-
-
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-
-
-
 
 
 	public String getFullName() {
@@ -140,17 +88,9 @@ public class UserEntity {
 	}
 
 
-
-
-
-
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
-
-
-
-
 
 
 	public String getRole() {
@@ -158,48 +98,28 @@ public class UserEntity {
 	}
 
 
-
-
-
-
 	public void setRole(String role) {
 		this.role = role;
 	}
 
 
-
-
-
-
-	public String getImage() {
-		return image;
-	}
-
-
-
-
-
-
-	public void setImage(String image) {
-		this.image = image;
-	}
-
-
-
-
+//	public String getImage() {
+//		return image;
+//	}
+//
+//
+//	public void setImage(String image) {
+//		this.image = image;
+//	}
 
 
 	public List<TicketEntity> getTickets() {
-		return ticketEntities;
+		return tickets;
 	}
 
 
-
-
-
-
-	public void setTickets(List<TicketEntity> ticketEntities) {
-		this.ticketEntities = ticketEntities;
+	public void setTickets(List<TicketEntity> tickets) {
+		this.tickets = tickets;
 	}
 
 	
@@ -207,6 +127,5 @@ public class UserEntity {
 	
 	
 	
-	
-	
+
 }

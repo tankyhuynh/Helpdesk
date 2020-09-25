@@ -11,18 +11,16 @@ public class FAQEntity {
 
 	@Id
 	private long id;
-	
+
 	@Column(columnDefinition = "TEXT")
 	private String question;
-	
+
 	@Column(columnDefinition = "TEXT")
 	private String answer;
-	
+
 	public FAQEntity() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	
 
 	public FAQEntity(String question, String answer) {
 		super();
@@ -30,19 +28,13 @@ public class FAQEntity {
 		this.answer = answer;
 	}
 
-
-
 	public long getId() {
 		return id;
 	}
 
-
-
 	public void setId(long id) {
 		this.id = id;
 	}
-
-
 
 	public String getQuestion() {
 		return question;
@@ -60,8 +52,4 @@ public class FAQEntity {
 		this.answer = answer;
 	}
 
-	
-	
-	
-	
 }

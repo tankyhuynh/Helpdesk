@@ -1,2 +1,1 @@
-INSERT INTO `user` (`id`, `full_name`, `image`, `password`, `role`, `username`) VALUES ('1', 'User 1', NULL, 'user1', 'USER', 'user1'), ('2', 'ADMIN', NULL, 'admin', 'ADMIN', 'Admin');
-INSERT INTO `ticket` (`id`, `end_date`, `image`, `start_date`, `technician_id`, `technician_name`, `title`) VALUES ('1', '12/12/2020', NULL, '12/12/2020', 'User1', 'User1', 'title 1'), ('2', '12/12/2020', NULL, '12/12/2020', 'ADMIN', 'admin', 'title2');
+INSERT INTO `user` (`id`, `full_name`, `password`, `role`, `username`) VALUES ('1', 'Admin', 'admin', 'ADMIN', 'admin'), ('2', 'User1', 'user1', 'USER', 'user 1') 
